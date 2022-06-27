@@ -3,7 +3,7 @@
     "background_color": "#9b9b9b",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "https://ksadowski13.github.io/projekt-zaawansowane-technologie-internetowe/",
     "name": "Weather App",
     "short_name": "WApp",
     "icons": [
