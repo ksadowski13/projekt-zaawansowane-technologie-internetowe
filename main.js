@@ -1,6 +1,3 @@
-// bez niczego - typ elementu
-// `.` - nazwa klasy
-// `#` - id elementu 
 const input = document.querySelector('input')
 const button = document.querySelector('button')
 const errorMessage = document.querySelector('.error')
