@@ -19,45 +19,45 @@ const checkWeather = () => {
     const city = input.value
     const URL = apiLink + city + apiKey + apiUnits
 
-    axios.get(URL).then(response => {
-        console.log(response.data)
-
-        if (!navigator.onLine) {
-            errorMessage.textContent = 'Brak połączenia z internetem'
-        } else {
+    if (!navigator.onLine) {
+        errorMessage.textContent = 'Brak połączenia z internetem'
+    } else {
+        axios.get(URL).then(response => {
+            console.log(response.data)
+    
             errorMessage.textContent = ''
-        }
-
-        cityName.textContent = `${response.data.name}, ${response.data.sys.country}`
-        temperature.textContent = `Temperatura: ${Math.floor(response.data.main.temp)} °C`
-        feelTemperature.textContent = `Temperatura odczuwalna: ${Math.floor(response.data.main.feels_like)} °C`
-        pressure.textContent = `Ciśnienie: ${response.data.main.pressure} hPa`
-        humidity.textContent = `Wilgotność: ${response.data.main.humidity} %`
-        windSpeed.textContent = `Prędkość wiatru: ${response.data.wind.speed} m/s`
-        temperatureDescription.textContent = `${response.data.weather[0].description}`
-        date.textContent = `${new Date().toString().slice(4, 21)}`
-
-        img.setAttribute('src', `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
-    }).catch((error) => {
-        if (error.response.data.cod == '404') {
-            errorMessage.textContent = 'Nie ma takiej nazwy miasta'
-        } else {
-            errorMessage.textContent = 'Wystąpił nieznany błąd'
-        }
-
-        cityName.textContent = ''
-        temperature.textContent = ''
-        feelTemperature.textContent = ''
-        pressure.textContent = ''
-        humidity.textContent = ''
-        windSpeed.textContent = ''
-        temperatureDescription.textContent = ''
-        date.textContent = ''
-
-        img.setAttribute('src', '')
-    }).finally(() => {
-        input.value = ''
-    })
+    
+            cityName.textContent = `${response.data.name}, ${response.data.sys.country}`
+            temperature.textContent = `Temperatura: ${Math.floor(response.data.main.temp)} °C`
+            feelTemperature.textContent = `Temperatura odczuwalna: ${Math.floor(response.data.main.feels_like)} °C`
+            pressure.textContent = `Ciśnienie: ${response.data.main.pressure} hPa`
+            humidity.textContent = `Wilgotność: ${response.data.main.humidity} %`
+            windSpeed.textContent = `Prędkość wiatru: ${response.data.wind.speed} m/s`
+            temperatureDescription.textContent = `${response.data.weather[0].description}`
+            date.textContent = `${new Date().toString().slice(4, 21)}`
+    
+            img.setAttribute('src', `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+        }).catch((error) => {
+            if (error.response.data.cod == '404') {
+                errorMessage.textContent = 'Nie ma takiej nazwy miasta'
+            } else {
+                errorMessage.textContent = 'Wystąpił nieznany błąd'
+            }
+    
+            cityName.textContent = ''
+            temperature.textContent = ''
+            feelTemperature.textContent = ''
+            pressure.textContent = ''
+            humidity.textContent = ''
+            windSpeed.textContent = ''
+            temperatureDescription.textContent = ''
+            date.textContent = ''
+    
+            img.setAttribute('src', '')
+        }).finally(() => {
+            input.value = ''
+        })
+    }
 }
 
 const checkWeatherByEnter = e => {
