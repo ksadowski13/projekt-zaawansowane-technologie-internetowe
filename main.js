@@ -25,7 +25,11 @@ const checkWeather = () => {
     axios.get(URL).then(response => {
         console.log(response.data)
 
-        errorMessage.textContent = ''
+        if (!navigator.onLine) {
+            errorMessage.textContent = 'Brak połączenia z internetem'
+        } else {
+            errorMessage.textContent = ''
+        }
 
         cityName.textContent = `${response.data.name}, ${response.data.sys.country}`
         temperature.textContent = `Temperatura: ${Math.floor(response.data.main.temp)} °C`
