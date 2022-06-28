@@ -4,50 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- CSS only -->
+    <title>Weather App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="manifest" href="manifest.webmanifest">
     <meta name="theme-color" content="#9013fe">
 </head>
-<body>
-    <header>
-        <h1>Aplikacja Pogodowa</h1>
-    </header>
-    <main>
-        <div class="app-top">
-            <div class="search">
-                <input type="text" placeholder="podaj nazwę miasta">
-                <button>Sprawdź pogodę</button>
-                <p class="error"></p>
-            </div>
-            <p class="date"></p>
-            <h3 class="cityName"></h3>
-            <div class="temperatureBox">
-                <div class="temperatureIcon">
-                    <img src="" alt="">
-                    <p class="temperatureDescription"></p>
+<body class="container-fluid main-container ">
+    <div class="row d-flex justify-content-center text-center">
+        <header>
+            <h1>WApp</h1>
+        </header>
+        <main>
+            <div class="app-top">
+                <div class="search">
+                    <input type="text" placeholder="podaj nazwę miasta">
+                    <button>Sprawdź pogodę</button>
+                    <p class="error"></p>
                 </div>
+                <p class="date"></p>
+                <h3 class="cityName"></h3>
+                <div class="temperatureBox">
+                    <div class="temperatureIcon">
+                        <img src="" alt="">
+                        <p class="temperatureDescription"></p>
+                    </div>
+                    <span class="temperature"></span>
+                </div>
+                <p><span class="feelTemperature"></span></p>
+    
                 
-                <span class="temperature"></span>
                 
             </div>
-            <p>Temperatura odczuwalna: <span class="feelTemperature"></span></p>
-
-            
-            
-        </div>
-        <div class="app-bottom">
-            <p>Cisnienie: <span class="pressure"></span></p>
-            <p>Wilgotność: <span class="humidity"></span></p>
-            <p>Prędkość wiatru: <span class="windSpeed"></span></p>
-            <!-- <p>Widoczność: <span class="visibility"></span></p> -->
-        </div>
-    </main>
-    <footer>
-        <p>Projekt WSB 2022 - Zaawansowane technologie internetowe</p>
-    </footer>
+            <div class="app-bottom">
+                <p><span class="pressure"></span></p>
+                <p><span class="humidity"></span></p>
+                <p><span class="windSpeed"></span></p>
+            </div>
+        </main>
+        <footer>
+            <p>Projekt WSB 2022 Krzysztof Sadowski<br>Zaawansowane technologie internetowe</p>
+        </footer>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js"></script>
     <script src="service-worker.js"></script>

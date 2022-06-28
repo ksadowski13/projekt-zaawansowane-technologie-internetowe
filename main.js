@@ -28,11 +28,11 @@ const checkWeather = () => {
         errorMessage.textContent = ''
 
         cityName.textContent = `${response.data.name}, ${response.data.sys.country}`
-        temperature.textContent = `${Math.floor(response.data.main.temp)} °C`
-        feelTemperature.textContent = `${Math.floor(response.data.main.feels_like)} °C`
-        pressure.textContent = `${response.data.main.pressure} hPa`
-        humidity.textContent = `${response.data.main.humidity} %`
-        windSpeed.textContent = `${response.data.wind.speed} m/s`
+        temperature.textContent = `Temperatura: ${Math.floor(response.data.main.temp)} °C`
+        feelTemperature.textContent = `Temperatura odczuwalna: ${Math.floor(response.data.main.feels_like)} °C`
+        pressure.textContent = `Ciśnienie: ${response.data.main.pressure} hPa`
+        humidity.textContent = `Wilgotność: ${response.data.main.humidity} %`
+        windSpeed.textContent = `Prędkość wiatru: ${response.data.wind.speed} m/s`
         temperatureDescription.textContent = `${response.data.weather[0].description}`
         date.textContent = `${new Date().toString().slice(4, 21)}`
 
@@ -52,10 +52,6 @@ const checkWeather = () => {
         windSpeed.textContent = ''
         temperatureDescription.textContent = ''
         date.textContent = ''
-
-        // [cityName, temperature, feelTemperature, pressure, humidity, windSpeed, temperatureDescription, date].forEach(i => {
-        //     i.textContent = ''
-        // });
 
         img.setAttribute('src', '')
     }).finally(() => {
